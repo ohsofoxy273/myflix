@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.3'
 
+gem 'rails'
 gem 'bootstrap-sass'
 gem 'coffee-rails'
-gem 'rails', '4.1.1'
 gem 'haml-rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -19,11 +19,11 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-  gem 'rspec-rails', '2.99'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'database_cleaner', '1.2.0'
+  gem 'database_cleaner'
 end
 
 group :production do

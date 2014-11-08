@@ -158,15 +158,15 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails
-  database_cleaner (= 1.2.0)
+  database_cleaner
   haml-rails
   jquery-rails
   pg
   pry
   pry-nav
-  rails (= 4.1.1)
+  rails
   rails_12factor
-  rspec-rails (= 2.99)
+  rspec-rails
   sass-rails
   thin
   uglifier
