@@ -1,5 +1,14 @@
 require 'spec_helper'
 
+
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it "saves a valid Category" do
+		comedies = Category.new(name: "comedies")
+		comedies.save
+		expect(Category.first).to eq(comedies)
+	end
+
+	it "has many videos" do
+		should have_many :videos
+	end
 end

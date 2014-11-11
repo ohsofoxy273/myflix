@@ -11,40 +11,39 @@
 							 description: "A funny show",
 							 small_cover_url: "/tmp/monk.jpg",
 							 large_cover_url: "/tmp/monk_large.jpg",
-							 category_id: 1)
-
+							 category_id: comedies.id)
 	Video.create(title: "Family guy",
 							 description: "A funny  TV show",
 							 small_cover_url: "/tmp/family_guy.jpg",
 							 large_cover_url: "/tmp/monk_large.jpg",
-							 category_id: 2)
+							 category_id: dramas.id)
 
 	Video.create(title: "Futurama",
 							 description: "A funny show",
 							 small_cover_url: "/tmp/futurama.jpg",
 							 large_cover_url: "/tmp/futurama.jpg",
-							 category_id: 3)
+							 category_id: comedies.id)
 
 	Video.create(title: "South Park",
 							 description: "A funny cartoon show",
 							 small_cover_url: "/tmp/south_park.jpg",
 							 large_cover_url: "/tmp/south_park.jpg",
-							 category_id: 3)
+							 category_id: dramas.id)
 
 	Video.create(title: "Monk",
 							 description: "A funny show",
 							 small_cover_url: "/tmp/monk.jpg",
 							 large_cover_url: "/tmp/monk_large.jpg",
-							 category_id: 4)
+							 category_id: horror.id)
 
 	Video.create(title: "Monk",
 							 description: "A funny show",
 							 small_cover_url: "/tmp/monk.jpg",
 							 large_cover_url: "/tmp/monk_large.jpg",
-							 category_id: 1)
+							 category_id: reality.id)
 end
 
-Category.create(name: 'TV_comedies')
-Category.create(name: 'TV_dramas')
-Category.create(name: 'horror')
-Category.create(name: 'reality_TV')
+comedies = Category.create(name: 'TV_comedies')
+dramas = Category.create(name: 'TV_dramas')
+horror = Category.create(name: 'horror')
+reality = Category.create(name: 'reality_TV')
