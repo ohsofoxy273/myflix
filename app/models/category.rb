@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
-	has_many :videos, -> { order("title")}
+	has_many :videos, -> { order("created_at DESC")}
 
-	def six_random_videos
-		self.videos.limit(6).order("RANDOM()")
+	def recent_videos
+		self.videos.first(6) 
 	end
 end
