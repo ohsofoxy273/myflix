@@ -17,4 +17,6 @@ Myflix::Application.configure do
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
+  config.force_ssl = true
+
 end
