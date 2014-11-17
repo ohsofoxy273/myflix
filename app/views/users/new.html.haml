@@ -5,14 +5,10 @@
         %header
           %h1 Register
         %fieldset
-          .form-group
-            = f.email_field :email, label: "Email Address"
-          .form-group
-            = f.password_field :password, label: "Password"
-          .form-group
-            = f.password_field :password_confirmation, label: "Confirm Password"
-          .form-group
-            = f.text_field :name, label: "Full Name"
+          = f.email_field :email, label: "Email Address"
+          = f.password_field :password, label: "Password"
+          = f.password_field :password_confirmation, label: "Confirm Password"
+          = f.text_field :name, label: "Full Name"
         %fieldset.credit_card
           .form-group
             %label.control-label.col-sm-3 Credit Card Number
