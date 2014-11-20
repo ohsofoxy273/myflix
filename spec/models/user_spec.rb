@@ -1,31 +1,30 @@
 require 'spec_helper'
 
 describe User do
-
+	let(:user) { User.create(name: "Bob", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar") }
 	it "is valid with a name and email" do
-		user = User.create(name: "Bob", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar")
 		expect(user).to be_valid
 	end 
 	
 	it "is invalid without a name" do
-		user = User.create(name: "", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar")
+		user.name = ""	
 		expect(user).not_to be_valid
 	end
 	
 	it "is invalid without an email" do
-		user = User.create(name: "Bob", email: "", password: "foobar", password_confirmation: "foobar")
+		user.email = ""	
 		expect(user).not_to be_valid	
 	end
 	
 	it "enforces the name not being too long" do
 		name = "a" * 51
-		user = User.create(name: name, email: "bob@bob.com", password: "foobar", password_confirmation: "foobar")
+		user.name = name	
 		expect(user).not_to be_valid
 	end
 
 	it "enforces the email not being too long" do
 		email = "a" * 256
-		user = User.create(name: "Bob", email: email, password: "foobar", password_confirmation: "foobar")
+		user.email = email	
 		expect(user).not_to be_valid
 	end
 
@@ -48,8 +47,8 @@ describe User do
 	end
 	
 	it "accepts only unique email addresses" do
-		user_1 = User.create(name: "Bob", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar")
-		user_2 = User.create(name: "Joe", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar")
+		user_1 = user
+		user_2 = user 
 		expect(User.all.count).to eq(1)
 	end
 
