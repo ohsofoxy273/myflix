@@ -29,8 +29,4 @@ describe Review do
   	expect(review).to_not be_valid
   end
 
-  it "requires the content to be longer than 6 characters" do
-  	review = Review.create(rating: 5, content: "a"*5)
-  	expect(review).to_not be_valid
-  end
-end
+ end
