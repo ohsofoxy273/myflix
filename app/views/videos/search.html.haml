@@ -1,10 +1,10 @@
 %article.video_category
-	%header
-		- @search_results.in_groups_of 6 do |group|
-			.videos.row
-			%br
-			- group.each do |video|
-				.video.col-sm-2
-					- unless video.nil?
-						%h3= link_to video.title.titleize, video_path(video.id)
-						= link_to image_tag(video.small_cover_url), video_path(video.id)
+  %header
+    - @search_results.in_groups_of 6 do |group|
+      .videos.row
+      %br
+      - group.each do |video|
+        .video.col-sm-2
+          - unless video.nil?
+            %h3= link_to video.title.titleize, video_path(video.id)
+            = link_to image_tag(video.small_cover_url), video_path(video.id)
