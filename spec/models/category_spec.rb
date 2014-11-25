@@ -1,13 +1,15 @@
 require 'spec_helper'
 
 describe Category do
+	it { should validate_presence_of :name }
+	it { should have_many :videos }
+
 	it "saves a valid Category" do
 		comedies = Category.new(name: "comedies")
 		comedies.save
 		expect(Category.first).to eq(comedies)
 	end
 
-	it { should have_many :videos }
 
 	describe "#recent_videos" do
 		let(:comedies) {Category.create(name: "comedies")}
