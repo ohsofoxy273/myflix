@@ -16,5 +16,5 @@ Myflix::Application.routes.draw do
   resources :categories, only: :show 
 
   get 'my_queue', to: 'queue_items#index'
-  resources :queue_items, only: :create
+  resources :queue_items, only: [:create, :destroy]
 end
