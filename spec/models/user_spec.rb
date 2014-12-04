@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe User do
+	it { should have_many(:queue_items).order(:position) }
+
 	let(:user) { User.create(name: "Bob", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar") }
 	it "is valid with a name and email" do
 		expect(user).to be_valid

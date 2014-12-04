@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
-  has_many :queue_items
+  has_many :queue_items, -> {order :position}
   has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
