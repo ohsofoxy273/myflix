@@ -58,4 +58,19 @@ describe User do
 		user = User.create(name: "Bob", email: "bob@bob.com", password: "fooba", password_confirmation: "fooba")
 		expect(user.errors[:password].size).to eq(1)
 	end
+
+	describe "#queued_video?" do
+		it "returns true if the video is present in the queue" do
+			user = Fabricate(:user)
+			video = Fabricate(:video)
+			Fabricate(:queue_item, video: video, user: user)
+			expect(user.queued_video?(video)).to be true
+		end
+
+		it "returns false if the video is not present in the queue" do
+			user = Fabricate(:user)
+			video = Fabricate(:video)
+			expect(user.queued_video?(video)).to be false
+		end
+	end
 end
