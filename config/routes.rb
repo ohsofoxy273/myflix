@@ -2,8 +2,12 @@ Myflix::Application.routes.draw do
   
   root to: "static_pages#home"
   resources :users
+  get 'people', to: "relationships#index"
+
   resources :sessions, only: [:new, :create, :destroyy]
   get 'logout'  => 'sessions#destroy'
+
+  resources :relationships, only: [:create, :destroy]
 
   get 'ui(/:action)', controller: 'ui'
   get '/home', to: 'videos#index'

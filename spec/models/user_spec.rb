@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
 	it { should have_many(:queue_items).order(:position) }
+	it { should have_many(:reviews).order("created_at DESC")}
 
 	let(:user) { User.create(name: "Bob", email: "bob@bob.com", password: "foobar", password_confirmation: "foobar") }
 	it "is valid with a name and email" do
@@ -72,5 +73,23 @@ describe User do
 			video = Fabricate(:video)
 			expect(user.queued_video?(video)).to be false
 		end
+	end
+
+	describe "#follows?" do
+		it "returns true if the user has a following relationship with another user" do
+			alice = Fabricate(:user)
+			bob = Fabricate(:user)
+			Fabricate(:relationship, leader: bob, follower: alice)
+			expect(alice.follows?(bob)).to be true
+		end
+		it "returns false of the the user does not have a following relationship wiht another user" do
+			alice = Fabricate(:user)
+			bob = Fabricate(:user)
+			mike = Fabricate(:user)
+			Fabricate(:relationship, leader: mike, follower: alice)
+			expect(alice.follows?(bob)).to be false
+		end
+
+
 	end
 end
