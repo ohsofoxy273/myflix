@@ -34,7 +34,7 @@ describe InvitationsController do
       it "sends an email to the recipient" do
         set_current_user
         post :create, invitation: { recipient_name: "Joe Smith", recipient_email: "joe@example.com", message: "Hey join MyFlix!" }
-        expect(ActionMailer::Base.deliveries.last.to).to eq("joe@example.com") 
+        expect(ActionMailer::Base.deliveries.last.to).to eq(["joe@example.com"]) 
       end
 
       it "sets the flash success message"
