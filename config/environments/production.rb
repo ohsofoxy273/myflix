@@ -6,6 +6,7 @@ Myflix::Application.configure do
   config.action_controller.perform_caching = true
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'murmuring-chamber-9731.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
     :address        => ENV['MAILGUN_SMTP_SERVER'],
