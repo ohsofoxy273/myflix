@@ -5,6 +5,10 @@ Myflix::Application.routes.draw do
   get 'register/:token', to: "users#new_with_invitation_token", as: 'register_with_token'
   get 'people', to: "relationships#index"
 
+  namespace :admin do
+    resources :videos, only: [:new, :create]
+  end
+
   resources :sessions, only: [:new, :create, :destroyy]
   get 'logout'  => 'sessions#destroy'
 
