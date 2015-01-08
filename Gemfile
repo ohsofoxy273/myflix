@@ -14,6 +14,7 @@ gem 'pg'
 gem 'figaro'
 gem 'sidekiq'
 gem 'unicorn'
+gem 'paratrooper'
 
 group :development do
   gem 'thin'
@@ -29,7 +30,7 @@ group :development, :test do
 end
 
 group :test do
-	gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', require: false
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
@@ -40,5 +41,6 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem "sentry-raven" #, :github => "getsentry/raven-ruby"
 end
 
