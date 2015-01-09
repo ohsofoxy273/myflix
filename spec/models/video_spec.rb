@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Video do
   video = Video.create(title: "title", 
   											 description: "description",
-                         small_cover_url: "url",
-                         large_cover_url: "url")
+                         )
   
   it "has a valid model" do
     expect(video).to be_valid
