@@ -19,6 +19,7 @@ feature 'Admin adds new video' do
     sign_in
 
     visit video_path(Video.first)
+    save_and_open_page
     expect(page).to have_selector("img[src='/uploads/monk_large.jpg']")
     expect(page).to have_selector("img[href='http://www.example.com/my_video.mp4']")
   end
