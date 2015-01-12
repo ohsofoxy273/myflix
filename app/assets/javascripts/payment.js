@@ -1,5 +1,5 @@
 function stripeResponseHandler(status, response) {
-  var $form = $('#payment-form');
+  var $form = $('#new_user');
 
   if (response.error) {
     $form.find('.payment-errors').text(response.error.message);
@@ -12,7 +12,7 @@ function stripeResponseHandler(status, response) {
 };
 
 jQuery(function($) {
-  $('#payment-form').submit(function(event) {
+  $('#new_user').submit(function(event) {
     var $form = $(this);
     $form.find('button').prop('disabled', true);
     Stripe.card.createToken($form, stripeResponseHandler);
