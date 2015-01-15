@@ -13,6 +13,7 @@ class UsersController < ApplicationController
                               :card => params[:stripeToken],
                               :description => "Sign up charge for #{@user.email}"
                              )
+      #StripeWrapper::Charge.create()
       handle_invitation
       AppMailer.send_welcome_email(@user).deliver
       log_in @user
