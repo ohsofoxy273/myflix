@@ -19,6 +19,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'stripe'
+gem 'draper'
+gem 'stripe_event'
 
 group :development do
   gem 'thin'
@@ -43,6 +45,7 @@ group :test do
   gem 'capybara-email'
   gem 'vcr'
   gem 'webmock'
+  gem 'selenium-webdriver'
 end
 
 group :production do

@@ -1,5 +1,7 @@
 Myflix::Application.routes.draw do
-  
+
+  mount StripeEvent::Engine => '/stripe'
+
   root to: "static_pages#home"
   resources :users
   get 'register/:token', to: "users#new_with_invitation_token", as: 'register_with_token'
@@ -7,6 +9,7 @@ Myflix::Application.routes.draw do
 
   namespace :admin do
     resources :videos, only: [:new, :create]
+    resources :payments, only: [:index]
   end
 
   resources :sessions, only: [:new, :create, :destroyy]

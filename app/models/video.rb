@@ -11,4 +11,7 @@ class Video < ActiveRecord::Base
     result.blank? == false ? result : []
   end
 
+  def rating
+  	reviews.average(:rating).round(1) if reviews.average(:rating)
+  end
 end
